@@ -1,6 +1,7 @@
 [requires]
 # Update version whenever a new release of OpenSSL comes out
 OpenSSL/1.0.2j@lasote/stable
+pcre/8.38.0@lasote/vcpkg
 
 [options]
 # Use shared .dll libraries (MD instead of MT)
