@@ -5,9 +5,12 @@ install:
     # > Increment version number when newer version of Visual Studio supported by Appveyor
     - cmd: '"C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/vcvarsall.bat" amd64_x86'
     # Set up Conan package manager
+    - cmd: echo Downloading Conan package manager...
+    # Use the Python/pip install method; better supported, works via HTTPS
+    # See https://github.com/conan-io/conan/issues/706#issuecomment-263323890
     - cmd: set PATH=%PATH%;%PYTHON%/Scripts/
     - cmd: pip.exe install conan
-    - cmd: set PATH=%PATH%;C:\Program Files (x86)\Conan\conan
+    - cmd: conan user # Create conan data directory
     - cmd: conan --version
 
 build_script:
