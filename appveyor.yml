@@ -130,6 +130,10 @@ build_script:
             Exit 1
         }
 
+# DEBUGGING ONLY: Allow RDP access
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 # Guidance for future maintainers: Powershell versus Windows Command Interpreter
 # Environment variables
 # > Powershell:  $env:NAME
